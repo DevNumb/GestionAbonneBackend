@@ -9,6 +9,7 @@ class Historique extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'id',
         'firstname',
         'lastname',
         'username',
