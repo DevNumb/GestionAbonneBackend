@@ -70,7 +70,7 @@ return [
     */
 
     'links' => [
-        public_path('Event') => storage_path('app/Event'),
+        public_path('pdf') => storage_path('app/pdf'),
     ],
 
 ];
