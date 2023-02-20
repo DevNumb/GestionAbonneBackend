@@ -13,4 +13,7 @@ class Convention extends Model
         'Nom_con', 
         'description'
     ];
+
+    public $timestamps = false;
 }
+
