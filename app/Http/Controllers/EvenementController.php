@@ -22,4 +22,15 @@ $filename = $req->input('nom_event') . '.pdf';
     function listEvent(){
         return Evenement::all();
     }
+
+    function delEvent ($id){
+      $res =Evenement::where('id_event',$id)->delete();
+      if ($res){
+        return ["result"=> "Event has been delete"];
+
+      }else {
+        return ["result"=> "delete failed"];
+      }
+        return $id;
+    }
 }
