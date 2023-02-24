@@ -16,8 +16,17 @@ $filename = $req->input('nom_event') . '.pdf';
     $event->Img = $req->file('file')->storeAs('pdf', $filename);
    
    
-    $event->save();
+    $inserted  = $event->save();
+    $event = $event->save();
     return $event;
+}
+
+
+function check($inserted){
+  if ($inserted){
+    return $inserted;
+    $inserted =null;
+  }
 }
     function listEvent(){
         return Evenement::all();

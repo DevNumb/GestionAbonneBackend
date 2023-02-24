@@ -36,3 +36,4 @@ Route::post('uploadUser' , [HistoriqueController::class , 'uploadUser']);
 Route::delete('delEvent/{id}' , [EvenementController::class , 'delEvent']);
 Route::delete('DelConvention/{id}' , [ConventionController::class , 'DelConvention']);
 Route::post('addCon',[ConventionController::class,'addCon']);
+Route::get('check' , [EvenementController::class , 'check']);
