@@ -37,3 +37,4 @@ Route::delete('delEvent/{id}' , [EvenementController::class , 'delEvent']);
 Route::delete('DelConvention/{id}' , [ConventionController::class , 'DelConvention']);
 Route::post('addCon',[ConventionController::class,'addCon']);
 Route::get('check' , [EvenementController::class , 'check']);
+Route::get('testSession' , [EvenementController::class , 'testSession']);
