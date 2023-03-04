@@ -1,0 +1,103 @@
+<?php 
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "facture_dbbb";
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+// Check connection
+if (!$conn) {
+die("Connection failed: " . mysqli_connect_error());
+} 
+
+?>
+<?php 
+$Référence=@$_POST["Référence_client"];
+$contact2=@$_POST["contact2"];
+$nom=@$_POST["nom_client"];
+$Prenom=@$_POST["Prenom_client"];
+$Numero=@$_POST["Numero_client"];
+$Adresse=@$_POST["Adresse"];
+$id=@$_POST["id"];
+$type=@$_POST["type"];
+$description=addslashes(@$_POST['description']);
+$montant=@$_POST["montant"];
+$mess1='';
+$mess2='';
+
+?>
+<?php 
+//enregistrement des clients
+//enregistrement des clients
+if(isset($_POST['benrg'])&&!empty($nom)&&!empty($Référence)){
+$sql=mysqli_query($conn,"insert into tb_client(Référence_client,nom_client,Prenom_client,Numero_client) values($Référence,'$nom','$Prenom',$Numero)");
+ 
+if($sql){
+ $mess1="<b>Enregistrement éffectué avec succès !</b>";
+}
+else{
+ $mess1="<b>Erreur !</b>";
+}
+}
+
+?>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>chcode_appli</title>
+	<link rel="stylesheet" type="text/css" href="cssfile2.css">
+	<meta charset="utf8">
+</head>
+
+
+<body style="background-image: url('Capture d’écran 2023-01-28 170517.png'); background-size: cover; ">
+</br>
+</br>
+</br>
+</br>
+	
+	<div align="center">
+	<h2>Formulaire d'enregistrement des clients</h2>
+	<form action="" method="POST">
+	</br>
+</br>
+</br>
+	<fieldset >
+      <legend ><b>CLIENT</b></legend>
+      <table>
+      <tr><td><b>Référence client</b></td><td><input type="text" name="Référence" value=""></td></tr>
+      <tr><td><b>Nom client</b></td><td><input type="text" name="nom" value=""></td></tr>
+	  <tr><td><b>Prenom client</b></td><td><input type="text" name="Prenom" value=""></td></tr>
+      <tr><td><b>Numero client</b></td><td><input type="text" name="numero" value=""></td></tr>
+      <tr><td></td><td><input type="submit" name="benrg" value="ENREGISTRER" class="bouton"></td></tr>
+     <tr><td></td><td><?php print $mess1;
+	 ?></td></tr>
+       </table>
+      </fieldset >
+	</form>
+	<?php 
+//affichage de la liste des clients de l'agence
+print"<h3>Liste des clients</h3>";
+	$rq1=mysqli_query($conn,"select * from tb_client ");
+	print'<table border="1" class="tab"><tr><th>Référence client</th><th>Nom client</th><th>Prenom client</th><th>Numero client</th></tr>';
+	
+	while($rst=mysqli_fetch_assoc($rq1)){
+	         print"<tr>";
+	         echo"<td>".$rst['Référence_client']."</td>";
+	         echo"<td>".$rst['nom_client']."</td>";
+			 echo"<td>".$rst['Prenom_client']."</td>";
+			 echo"<td>".$rst['Numero_client']."</td>";
+	         print"</tr>";
+	}
+	print'</table>';
+
+?>
+</br>
+</br>
+</br>
+</br>
+</br>
+</body>
+</html>

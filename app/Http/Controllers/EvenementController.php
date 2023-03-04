@@ -7,29 +7,29 @@ use App\Models\Evenement;
 use Illuminate\Support\Facades\Session;
 class EvenementController extends Controller
 {
+
  
     function addEvent(Request $req)
 {
+    global $checkData ;
     $event = new Evenement;
     $event->nom_event = $req->input('nom_event');
 $filename = $req->input('nom_event') . '.pdf';
 
     $event->Img = $req->file('file')->storeAs('pdf', $filename);
      $event->save();
-     // Set the event_added key in the session
-     Session::put('event_added', true);
- // Debugging statement
+     $checkData = 1;
     return $event;
 }
 
 
 function check()
 {
-    // Check if the event_added key is set in the session
-  // Debugging statement
-    if (Session::get('event_added')) {
+    global $checkData;
+    
+    if ($checkData===1) {
         // If the key is set, remove it from the session and return 1
-        Session::forget('event_added');
+    
         return 1;
     } else {
         // If the key is not set, return 0
