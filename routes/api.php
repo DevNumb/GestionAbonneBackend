@@ -6,6 +6,7 @@ use App\Http\Controllers\EvenementController;
 use App\Http\Controllers\HistoriqueController;
 use App\Http\Controllers\ConventionController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Promotion;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -41,3 +42,5 @@ Route::get('check' , [EvenementController::class , 'check']);
 Route::get('testSession' , [EvenementController::class , 'testSession']);
 Route::get('send',[HomeController::class,"sendnotification"]);
 Route::get('sends',[HomeController::class,"sendnotifications"]);
+Route::post('addPromo' , [PromotionController::class , 'addPromo']);
+Route::get('listPromo' , [PromotionController::class , 'listPromo']);
