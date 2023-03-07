@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EvenementController;
 use App\Http\Controllers\HistoriqueController;
 use App\Http\Controllers\ConventionController;
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -38,3 +39,5 @@ Route::delete('DelConvention/{id}' , [ConventionController::class , 'DelConventi
 Route::post('addCon',[ConventionController::class,'addCon']);
 Route::get('check' , [EvenementController::class , 'check']);
 Route::get('testSession' , [EvenementController::class , 'testSession']);
+Route::get('send',[HomeController::class,"sendnotification"]);
+Route::get('sends',[HomeController::class,"sendnotifications"]);
