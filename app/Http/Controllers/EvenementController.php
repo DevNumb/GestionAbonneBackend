@@ -23,19 +23,6 @@ $filename = $req->input('nom_event') . '.pdf';
 }
 
 
-function check()
-{
-    global $checkData;
-    
-    if ($checkData===1) {
-        // If the key is set, remove it from the session and return 1
-    
-        return 1;
-    } else {
-        // If the key is not set, return 0
-        return 0;
-    }
-}
 
 function testSession()
 {

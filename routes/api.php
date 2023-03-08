@@ -7,6 +7,7 @@ use App\Http\Controllers\HistoriqueController;
 use App\Http\Controllers\ConventionController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Promotion;
+use App\Http\Controllers\PromotionController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -44,3 +45,5 @@ Route::get('send',[HomeController::class,"sendnotification"]);
 Route::get('sends',[HomeController::class,"sendnotifications"]);
 Route::post('addPromo' , [PromotionController::class , 'addPromo']);
 Route::get('listPromo' , [PromotionController::class , 'listPromo']);
+Route::get('sendOffer',[HomeController::class,"sendnotificationOffer"]);
+Route::delete('delPromo/{id}' , [PromotionController::class , 'delPromo']);

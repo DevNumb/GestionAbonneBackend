@@ -22,4 +22,16 @@ class PromotionController extends Controller
        $promo = Promotion::all();
         return $promo;
     }
+
+    
+    function delPromo ($id){
+        $res =Promotion::where('id_promo',$id)->delete();
+        if ($res){
+          return ["result"=> "promo has been delete"];
+  
+        }else {
+          return ["result"=> "delete failed"];
+        }
+          return $id;
+      }
 }
