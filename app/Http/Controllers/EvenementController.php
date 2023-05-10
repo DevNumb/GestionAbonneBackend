@@ -11,14 +11,15 @@ class EvenementController extends Controller
  
     function addEvent(Request $req)
 {
-    global $checkData ;
     $event = new Evenement;
     $event->nom_event = $req->input('nom_event');
 $filename = $req->input('nom_event') . '.pdf';
 
     $event->Img = $req->file('file')->storeAs('pdf', $filename);
+    $event->date_db = $req->input('date_db');
+    $event->date_df = $req->input('date_df');
+    $event->Type = $req->input('Type');
      $event->save();
-     $checkData = 1;
     return $event;
 }
 

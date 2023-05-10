@@ -33,7 +33,7 @@ class HomeController extends Controller
 
       $details =[
         'greeting' => "HELLO User",
-        'body'=> 'Event has been added',
+        'body'=> 'Event has been added',  
         'actiontext' => 'Check',
         'actionurl' => 'http://localhost:3000/register',
         'lastline' => 'login in to see',

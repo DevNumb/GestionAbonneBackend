@@ -11,6 +11,11 @@ class Evenement extends Model
     protected $fillable = [
         'nom_event',
         'Img',
+        'date_db',
+        'date_df',
+        'Type',
+       
+
     ];
 
     

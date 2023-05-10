@@ -8,10 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Convention extends Model
 {
     use HasFactory;
-
+    protected $primaryKey = 'id_con';
     protected $fillable = [
         'Nom_con', 
-        'description'
+        'description',
+        'date',
     ];
 
     public $timestamps = false;
