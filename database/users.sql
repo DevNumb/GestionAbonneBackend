@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : sam. 18 fév. 2023 à 10:59
+-- Généré le : mer. 10 mai 2023 à 21:28
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -30,15 +30,18 @@ SET time_zone = "+00:00";
 CREATE TABLE `conventions` (
   `id_con` int(100) NOT NULL,
   `Nom_con` varchar(200) NOT NULL,
-  `description` varchar(200) NOT NULL
+  `description` varchar(200) NOT NULL,
+  `date` varchar(300) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `conventions`
 --
 
-INSERT INTO `conventions` (`id_con`, `Nom_con`, `description`) VALUES
-(1, 'telecom', 'Tunisie Télécom est le nom commercial de l\'opérateur historique de télécommunications en Tunisie.');
+INSERT INTO `conventions` (`id_con`, `Nom_con`, `description`, `date`) VALUES
+(10, 'Tunisie Telecom (Tunisie Télécom)', 'Tunisie Telecom is the incumbent telecom operator in Tunisia. Tunisie Telecom has more than 6 million subscribers in the fixed and mobile telephony, in Tunisia and abroad	e', NULL),
+(18, 'Hassen nahdi', 'bbb', NULL),
+(19, 'zz zz', 'vvv', '1999-12-12');
 
 -- --------------------------------------------------------
 
@@ -49,48 +52,42 @@ INSERT INTO `conventions` (`id_con`, `Nom_con`, `description`) VALUES
 CREATE TABLE `evenements` (
   `id_event` int(11) NOT NULL,
   `nom_event` varchar(100) NOT NULL,
-  `Img` varchar(100) DEFAULT NULL
+  `Img` varchar(100) DEFAULT NULL,
+  `date_db` varchar(300) DEFAULT NULL,
+  `date_df` varchar(300) DEFAULT NULL,
+  `Type` varchar(300) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `evenements`
 --
 
-INSERT INTO `evenements` (`id_event`, `nom_event`, `Img`) VALUES
-(2, 'ra7la', 'Event/JqU1BhbxMO7B4irjZQjjfkYj0PMYhF7sXm6TccsF.jpg'),
-(3, 'Ra7la2', 'Event/QBXEqRHT4jMX5G2rAvODUPFn6NCPEjUDuL5QSkjq.png'),
-(4, 'Ra7la 3', 'Event/JyIYorUqVgreie7b751anoS9Bwx2J8Kxvl47T8vA.jpg'),
-(5, 'fff', 'Event/gAM68cD6nyAC8PkLnmANd2AUm99gsbZ36RjWsHdg.txt'),
-(6, 'sss', 'pdf/8YZVxKx8E4txLhJ8HOQJSHuHekeYgQX81FXgLI9C.txt'),
-(7, 'xxcc', 'Event/LkL5BzeNmUQrLPJ9JJh6x8xfLXm2YAyBVMEpVKkV.png'),
-(8, 'qxqxw', 'Event/MoE2nWQ0T5RAUzM6OJIZ7d3HROOi9qcauItEinUU.txt'),
-(9, 'wxwxxxxxxwee', 'pdf/Event'),
-(10, 'xxxc', 'pdf/Event'),
-(11, 'scswc', 'pdf/0iCFqSUsKhN3znf5DTBelSMc2JdB0PfUwyWmdfcA.txt'),
-(12, 'xxxxxxxxxccccc', 'pdf/pk6EPymdReVdPeJr6WJ72aVR7ruFwyUg7XTQ5PGi.txt'),
-(13, 'sxsxsxsxsx', 'pdf/sYa2JldAsfMImYS9SvfoMLJIMNQgBRlPwYy8eV8f.txt'),
-(14, 'cxccxxxxxxccxeeee', 'pdf/cxccxxxxxxccxeeee'),
-(15, 'xsxcccd', 'pdf/xsxcccd'),
-(16, 'sdsds', 'pdf/PWQlLlHDxqrVgDqdSVJjuauoaQHflDHcUAEaH9lu.txt'),
-(17, 'cccccc', 'pdf/MxCD9v2xKmvld72A4CxO1estmH65IrUASVmmcUPU.txt'),
-(18, 'xsxsxxss', 'pdf/sECpWGtShH5ZQQeaC0iKrM2tj6pVCOY0LMYedOTM.txt'),
-(19, 'dsdsdscc', 'pdf/mDlMA7U20D3rSQnPxuHNJt0yT2YfFPjIxBwXbbGn.txt'),
-(20, 'wwww', 'pdf/KYIIVzXtGIfmZcL4z1sWtQKdNmg9UzHgdqnkMbAo.txt'),
-(21, 'xwwxwxxwx', 'pdf/xwwxwxxwx'),
-(22, 'xbxbxcxcxc', 'pdf/Myfile.pdf'),
-(23, 'vvvv', 'pdf/Myfile.pdf'),
-(24, 'xxxcccc', 'pdf/Myfile.pdf'),
-(25, 'ccccccccc', 'pdf/Myfile.pdf'),
-(26, 'bbb', 'pdf/Myfile.pdf'),
-(27, 'vvvveeeeerrr', 'pdf/file.pdf'),
-(28, 'vvvvvbbbnnn', 'pdf/file.pdf'),
-(29, 'bbnnttt', 'pdf/bbnnttt.pdf'),
-(30, 'nnkkk', 'pdf/nnkkk.pdf'),
-(31, 'what?', '0'),
-(32, 'ccc', 'pdf/ccc.pdf'),
-(33, 'www', 'pdf/www.pdf'),
-(34, 'xncncnx', 'pdf/xncncnx.pdf'),
-(35, 'hellothere', 'pdf/hellothere.pdf');
+INSERT INTO `evenements` (`id_event`, `nom_event`, `Img`, `date_db`, `date_df`, `Type`) VALUES
+(2, 'ra7la', 'Event/JqU1BhbxMO7B4irjZQjjfkYj0PMYhF7sXm6TccsF.jpg', NULL, '0', NULL),
+(5, 'fff', 'Event/gAM68cD6nyAC8PkLnmANd2AUm99gsbZ36RjWsHdg.txt', NULL, '0', NULL),
+(6, 'sss', 'pdf/8YZVxKx8E4txLhJ8HOQJSHuHekeYgQX81FXgLI9C.txt', NULL, '0', NULL),
+(7, 'xxcc', 'Event/LkL5BzeNmUQrLPJ9JJh6x8xfLXm2YAyBVMEpVKkV.png', NULL, '0', NULL),
+(8, 'qxqxw', 'Event/MoE2nWQ0T5RAUzM6OJIZ7d3HROOi9qcauItEinUU.txt', NULL, '0', NULL),
+(9, 'wxwxxxxxxwee', 'pdf/Event', NULL, '0', NULL),
+(10, 'xxxc', 'pdf/Event', NULL, '0', NULL),
+(11, 'scswc', 'pdf/0iCFqSUsKhN3znf5DTBelSMc2JdB0PfUwyWmdfcA.txt', NULL, '0', NULL),
+(12, 'xxxxxxxxxccccc', 'pdf/pk6EPymdReVdPeJr6WJ72aVR7ruFwyUg7XTQ5PGi.txt', NULL, '0', NULL),
+(13, 'sxsxsxsxsx', 'pdf/sYa2JldAsfMImYS9SvfoMLJIMNQgBRlPwYy8eV8f.txt', NULL, '0', NULL),
+(14, 'cxccxxxxxxccxeeee', 'pdf/cxccxxxxxxccxeeee', NULL, '0', NULL),
+(15, 'xsxcccd', 'pdf/xsxcccd', NULL, '0', NULL),
+(18, 'xsxsxxss', 'pdf/sECpWGtShH5ZQQeaC0iKrM2tj6pVCOY0LMYedOTM.txt', NULL, '0', NULL),
+(19, 'dsdsdscc', 'pdf/mDlMA7U20D3rSQnPxuHNJt0yT2YfFPjIxBwXbbGn.txt', NULL, '0', NULL),
+(22, 'xbxbxcxcxc', 'pdf/Myfile.pdf', NULL, '0', NULL),
+(23, 'vvvv', 'pdf/Myfile.pdf', NULL, '0', NULL),
+(24, 'xxxcccc', 'pdf/Myfile.pdf', NULL, '0', NULL),
+(26, 'bbb', 'pdf/Myfile.pdf', NULL, '0', NULL),
+(27, 'vvvveeeeerrr', 'pdf/file.pdf', NULL, '0', NULL),
+(28, 'vvvvvbbbnnn', 'pdf/file.pdf', NULL, '0', NULL),
+(29, 'bbnnttt', 'pdf/bbnnttt.pdf', NULL, '0', NULL),
+(38, 'aa', 'pdf/aa.pdf', NULL, '0', NULL),
+(70, 'aaa', 'pdf/aaa.pdf', NULL, '0', 'zzz'),
+(71, 'ssss', 'pdf/ssss.pdf', NULL, NULL, 'aaaaa'),
+(73, 'abcd', 'pdf/abcd.pdf', '2020-03-12', '2021-04-12', 'vvv');
 
 -- --------------------------------------------------------
 
@@ -116,9 +113,64 @@ INSERT INTO `historiques` (`id`, `firstname`, `lastname`, `username`, `gender`, 
 (20, 'sdjkns', 'cswncjl', 'sc<wn;', 'female', 'dscqjldspl', 'admin'),
 (103, 'efesn', 'eneen', 'asma', 'Female', 'abenc@gmail.com', NULL),
 (110, 'vjvjd²', 'jsjs', 'brrrr', 'Female', 'abenc@gmail.com', 'Admin'),
+(113, 'dsklqn', 'klsds', 'dzq,zn', 'Female', 'abeeenc@gmail.com', 'User'),
+(114, 'vjvjd²', 'jsjs', 'vvvvv', 'Male', 'abebeenc@gmail.com', 'User'),
 (116, 'ejejje', 'dddd', 'Abedo', 'Male', 'abc@gmail.com', NULL),
 (117, 'zz', 'zz', 'eeer', 'Female', 'abcc@gmail.com', NULL),
-(118, 'ejejje', 'dddd', 'cxxcx', 'Male', 'abccvv@gmail.com', NULL);
+(118, 'ejejje', 'dddd', 'cxxcx', 'Male', 'abccvv@gmail.com', NULL),
+(119, 'dzqq', 'ssnw', 'www', 'Male', 'abencbb@gmail.com', NULL),
+(121, 'dsqs', 'dsdsqq', 'vodo', 'Female', 'abencb@gmail.com', 'User'),
+(122, 'aaaa', 'dddd', 'aaa', 'Female', 'abeeeccncccc@gmail.com', 'Admin'),
+(123, 'dd', 'zzz', 'zzq', 'Male', 'abencv@gmail.com', 'User'),
+(124, 'ejejje', 'dddd', 'aaaa', 'Male', 'abenceev@gmail.com', 'User'),
+(125, 'Asmaaa', 'ayari', 'boubou', 'Female', 'abencvv@gmail.com', NULL),
+(126, 'ejejje', 'dddd', 'bonbon', 'Male', 'abcde@gmail.com', 'Admin'),
+(127, 'hdo', 'gg', 'hedo', 'Male', 'abencv@gmail.com', 'User'),
+(131, 'azs', 'dsds', '<wxxx', 'Male', 'abeezeenc@gmail.com', 'Admin'),
+(132, 'aaaa', 'dddd', 'aaaaa', 'Female', 'abenhhc@gmail.com', NULL),
+(135, 'haa', 'zzz', 'www', 'Male', 'aberrrnc@gmail.com', NULL),
+(137, 'aaaa', 'dddd', 'nnnzz', 'Male', 'abaerrrnc@gmail.com', NULL),
+(138, 'aaaa', 'dddd', 'nnnzzz', 'Male', 'abaerrreenc@gmail.com', NULL),
+(139, 'aaaa', 'dddd', 'nnnzzzzz', 'Male', 'abaerrreeeenc@gmail.com', NULL),
+(140, 'aaaa', 'dddd', 'nnnzzzzzee', 'Male', 'abaerrrreeeenc@gmail.com', NULL),
+(141, 'aaaae', 'ddddrr', 'nnnzzzzzeeee', 'Male', 'abaerrrreaaeeenc@gmail.com', NULL),
+(142, 'haa', 'zzz', 'zzzeee', 'Male', 'abedfddnc@gmail.com', 'User'),
+(144, 'hhh', 'lll', 'gogo', 'Male', 'rbc@gmail.com', 'User');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `notifications`
+--
+
+CREATE TABLE `notifications` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `data` text NOT NULL,
+  `read_at` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `promotions`
+--
+
+CREATE TABLE `promotions` (
+  `id_promo` int(11) NOT NULL,
+  `nom_promo` varchar(300) NOT NULL,
+  `promo_img` varchar(300) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `promotions`
+--
+
+INSERT INTO `promotions` (`id_promo`, `nom_promo`, `promo_img`) VALUES
+(1, 'aaz', 'Event/aaz.pdf'),
+(2, 'aa', 'Event/aa.pdf'),
+(3, 'dddd', 'Event/dddd.pdf');
 
 -- --------------------------------------------------------
 
@@ -143,10 +195,10 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `gender`, `username`, `email`, `password`, `options`) VALUES
 (111, 'ahmed', 'ayari', 'male', 'hamido', 'abenc@gmail.com', '$2y$10$WwyalUiXoPWUyKmOGVAR.u2yoj21XtUckKNnbptyBAr1aPKyWZpJ2', 'Admin'),
-(113, 'dsklqn', 'klsds', 'Female', 'dzq,zn', 'abeeenc@gmail.com', '$2y$10$Dem5j9Gkx/IbTc6OPHfuheyLrTtQlbzyLvytoypuskKqcagwfBjpq', 'User'),
-(114, 'vjvjd²', 'jsjs', 'Male', 'vvvvv', 'abebeenc@gmail.com', '$2y$10$vTSYTAeZ1Pq5a9kSk3FpdOMgItjDBVSByuhZA76S93fSXBvCWDvqW', 'User'),
-(119, 'dzqq', 'ssnw', 'Male', 'www', 'abencbb@gmail.com', '$2y$10$/JDz8Xq6Zmn5gBzZPBe2Tu8.rrExNcGi31Bv6u6z7mDZUXh.Q..WK', NULL),
-(121, 'dsqs', 'dsdsqq', 'Female', 'vodo', 'abencb@gmail.com', '$2y$10$fKVdCEh8w.cfgfMHfh6EDu07BJsSXqcw5hHYVu9P5qI8uHuRO1gdS', 'User');
+(130, 'adz', 'dzaz', 'Male', 'cxw', 'abeeeenc@gmail.com', '$2y$10$arsyON/MCTkdErHLGoIVNusQX5X1zxYRw3xjltnPnZQxEj0.Z/6o6', 'Admin'),
+(133, 'Hassen', 'nahdi', 'Male', 'ccccc', 'abc@gmail.com', '$2y$10$k0sGmjNZ0Ii7ZLfTxvB5Ge4CY3a6qCacW77LYBAoqk.6l19APeBYm', 'User'),
+(134, 'Hassen', 'nahdi', 'Male', 'HASSEN', 'nahdi.hassene34@gmail.com', '$2y$10$1JBMfCAY4f9T7iFsCHCsQeORbKR.VtE8YuEuQiEU9C9F424dGCDEe', 'Admin'),
+(143, 'ggg', 'hhh', 'Male', 'aaa', 'abenerc@gmail.com', '$2y$10$ltpl2qOdmgMu0J.4uQ04dOnGYZvUpXpUh7taRqJmKCAkDu0zyDx46', 'Admin');
 
 --
 -- Index pour les tables déchargées
@@ -171,6 +223,18 @@ ALTER TABLE `historiques`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `notifications`
+--
+ALTER TABLE `notifications`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `promotions`
+--
+ALTER TABLE `promotions`
+  ADD PRIMARY KEY (`id_promo`);
+
+--
 -- Index pour la table `users`
 --
 ALTER TABLE `users`
@@ -185,19 +249,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `conventions`
 --
 ALTER TABLE `conventions`
-  MODIFY `id_con` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_con` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT pour la table `evenements`
 --
 ALTER TABLE `evenements`
-  MODIFY `id_event` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id_event` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+
+--
+-- AUTO_INCREMENT pour la table `notifications`
+--
+ALTER TABLE `notifications`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `promotions`
+--
+ALTER TABLE `promotions`
+  MODIFY `id_promo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=145;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
