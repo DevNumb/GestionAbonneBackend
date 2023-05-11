@@ -34,6 +34,7 @@ Route::post('addEvent' , [EvenementController::class , 'addEvent']);
 Route::get('listEvent' , [EvenementController::class , 'listEvent']);
 Route::get('listHistorique' , [HistoriqueController::class , 'listHistorique']);
 Route::get('search/{key}',[HistoriqueController::class , 'search']);
+Route::get('searchEvent/{key}',[EvenementController::class , 'searchEvent']);
 Route::get('listConvention',[ConventionController::class,'listConvention']);
 Route::post('uploadUser' , [HistoriqueController::class , 'uploadUser']);
 Route::delete('delEvent/{id}' , [EvenementController::class , 'delEvent']);

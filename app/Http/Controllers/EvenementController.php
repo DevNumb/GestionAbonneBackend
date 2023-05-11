@@ -23,7 +23,9 @@ $filename = $req->input('nom_event') . '.pdf';
     return $event;
 }
 
-
+function searchEvent($key){
+    return Evenement::where('nom_event','Like',"%$key%")->get();
+ }
 
 function testSession()
 {

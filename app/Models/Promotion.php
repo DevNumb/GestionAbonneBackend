@@ -11,6 +11,8 @@ class Promotion extends Model
     protected $fillable = [
         'nom_promo',
         'promo_img',
+        'date_deb',
+        'date_fin',
     ];
 
 

@@ -14,6 +14,8 @@ class PromotionController extends Controller
     $filename = $req->input('nom_promo') . '.pdf';
     
         $promo->promo_img = $req->file('file')->storeAs('Event', $filename);
+        $promo->date_deb = $req->input('date_deb');
+        $promo->date_fin = $req->input('date_fin');
          $promo->save();
         return $promo;
     }
@@ -34,4 +36,5 @@ class PromotionController extends Controller
         }
           return $id;
       }
+    
 }
