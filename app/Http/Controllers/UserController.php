@@ -52,5 +52,7 @@ class UserController extends Controller
     $user = User::find($req->input("id")); 
     $user->delete();
    }
+
+  
 }
 
