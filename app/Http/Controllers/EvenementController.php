@@ -59,6 +59,8 @@ function testSession()
     }
 
 
+  
+    
     function UpdateEvent (Request $req ,$id){
         $event = Evenement::find($id);
      
@@ -77,7 +79,6 @@ function testSession()
         $event->save();
         return response()->json(['message' => 'Evenement updated successfully'], 200);
     }
-    
     
 
 }

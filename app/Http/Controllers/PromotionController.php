@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use  App\Models\Promotion;
+use App\Models\Evenement;
 
 class PromotionController extends Controller
 {
@@ -54,5 +55,7 @@ class PromotionController extends Controller
         }
           return $id;
       }
+
+
     
 }
