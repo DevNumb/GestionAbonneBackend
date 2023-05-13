@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Evenement extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'id_event';
     protected $fillable = [
         'nom_event',
         'Img',

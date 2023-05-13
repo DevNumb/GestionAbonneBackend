@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Promotion extends Model
 {
+
+    protected $primaryKey = 'id_promo';
     use HasFactory;
     protected $fillable = [
         'nom_promo',

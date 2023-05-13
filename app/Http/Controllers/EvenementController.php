@@ -57,4 +57,27 @@ function testSession()
       }
         return $id;
     }
+
+
+    function UpdateEvent (Request $req ,$id){
+        $event = Evenement::find($id);
+     
+        $event->nom_event = $req->input('nom_event');
+        if ($req->hasFile('file')) {
+            $file = $req->file('file');
+            if (!$file->isValid()) {
+                return response()->json(['error' => 'File is not valid'], 400);
+            }
+            $filename = $req->input('nom_event') . '.pdf';
+            $event->Img = $file->storeAs('pdf', $filename);
+        }
+        $event->date_db = $req->input('date_db');
+        $event->date_df = $req->input('date_df');
+        $event->Type = $req->input('Type');
+        $event->save();
+        return response()->json(['message' => 'Evenement updated successfully'], 200);
+    }
+    
+    
+
 }
