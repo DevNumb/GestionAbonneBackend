@@ -27,21 +27,7 @@ function searchEvent($key){
     return Evenement::where('nom_event','Like',"%$key%")->get();
  }
 
-function testSession()
-{
-    // Store a value in the session
-    Session::put('test_key', 'test_value');
 
-    // Retrieve the value from the session
-    $value = Session::get('test_key');
-
-    // Check if the value was retrieved successfully
-    if ($value === 'test_value') {
-        return true;
-    } else {
-        return false;
-    }
-}
 
     function listEvent(){
         return Evenement::all();
@@ -63,21 +49,23 @@ function testSession()
     
     function UpdateEvent (Request $req ,$id){
         $event = Evenement::find($id);
-     
+        if (!$event) {
+            return response()->json(['error' => 'Event not found'], 404);
+        }
         $event->nom_event = $req->input('nom_event');
         if ($req->hasFile('file')) {
-            $file = $req->file('file');
-            if (!$file->isValid()) {
-                return response()->json(['error' => 'File is not valid'], 400);
-            }
-            $filename = $req->input('nom_event') . '.pdf';
-            $event->Img = $file->storeAs('pdf', $filename);
-        }
-        $event->date_db = $req->input('date_db');
-        $event->date_df = $req->input('date_df');
-        $event->Type = $req->input('Type');
-        $event->save();
-        return response()->json(['message' => 'Evenement updated successfully'], 200);
+          $file = $req->file('file');
+          if (!$file->isValid()) {
+              return response()->json(['error' => 'File is not valid'], 400);
+          }
+          $filename = $req->input('nom_event') . '.pdf';
+          $event->Img = $file->storeAs('Event', $filename);
+      }
+            $event->date_db = $req->input('date_db');
+            $event->date_df = $req->input('date_df');
+            $event->Type = $req->input('Type');
+             $event->save();
+             return response()->json(['message' => 'Event updated successfully'], 200);
     }
     
 
